@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "mocha test/*.test.js --timeout 120000",
     "start": "./node_modules/.bin/nodemon"
   },
   "keywords": [],
@@ -15,6 +15,8 @@
     "koa-body": "^4.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "supertest": "^3.1.0"
   }
 }

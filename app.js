@@ -1,12 +1,13 @@
 const Koa = require('koa')
 const koaBody = require('koa-body')
+const config = require('./config')
 
-const port = 3000
+const port = config.port
 
 const app = new Koa()
 
-app.use(koaBody())
 
+app.use(koaBody({ jsonLimit: '1kb' }))
 
 app.use(async ctx => {
   const body = ctx.request.body
@@ -15,4 +16,4 @@ app.use(async ctx => {
   ctx.body = { name: body.name.toUpperCase() }
 })
 
-app.listen(port, () => console.log("Listening on %s", port))
+module.exports = app.listen(port, () => console.log("Listening on %s", port))
